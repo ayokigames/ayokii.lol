@@ -1,187 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayoki Games</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <style>
-        :root {
-            --bg-color: #121212;
-            --card-bg-color: #1e1e1e;
-            --text-color: #e0e0e0;
-            --highlight-color: #007bff;
-            --highlight-hover: #0056b3;
-            --shadow-color: rgba(0, 0, 0, 0.5);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayoki Games</title>
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+<style>
+:root{
+  --bg:#121212;
+  --card:#1e1e1e;
+  --accent:#00aaff;
+  --text:#e0e0e0;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial, sans-serif;
+}
 
-        nav {
-            background-color: var(--card-bg-color);
-            padding: 10px 20px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 20px;
+  background:var(--card);
+}
 
-        .site-title {
-            color: var(--highlight-color);
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
+nav h1{
+  margin:0;
+  color:var(--accent);
+}
 
-        .nav-buttons a {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 10px 15px;
-            margin-left: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+#clock{
+  font-size:14px;
+  opacity:.8;
+}
 
-        .nav-buttons a:hover, .nav-buttons a.active {
-            background-color: var(--highlight-color);
-            color: white;
-        }
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
 
-        .intro-section {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: var(--card-bg-color);
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
+.search{
+  display:flex;
+  gap:10px;
+  margin:20px 0;
+}
 
-        .intro-section h1 {
-            color: var(--highlight-color);
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
+.search input{
+  flex:1;
+  padding:10px;
+  font-size:16px;
+}
 
-        .intro-section p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1em;
-        }
+.search button{
+  padding:10px 14px;
+  cursor:pointer;
+}
 
-        /* Games section styles */
-        #games {
-            margin-top: 40px;
-        }
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:15px;
+}
 
-        #games h2 {
-            color: var(--highlight-color);
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.game{
+  background:var(--card);
+  border-radius:10px;
+  overflow:hidden;
+  text-decoration:none;
+  color:white;
+  transition:transform .2s;
+}
 
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
+.game:hover{
+  transform:scale(1.05);
+}
 
-        .game-card {
-            background-color: var(--card-bg-color);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            text-align: center;
-            transition: transform 0.2s;
-        }
+.game img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+}
 
-        .game-card:hover {
-            transform: translateY(-5px);
-        }
+.game span{
+  display:block;
+  padding:8px;
+  text-align:center;
+  font-size:14px;
+}
 
-        .game-card img {
-            max-width: 100%;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .game-card h3 {
-            margin: 0;
-            font-size: 1.1em;
-        }
-
-        .game-card a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background-color: var(--highlight-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .game-card a:hover {
-            background-color: var(--highlight-hover);
-        }
-    </style>
+mark{
+  background:yellow;
+  color:black;
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-    <a href="index.html" class="site-title">Ayoki Games</a>
-    <div class="nav-buttons">
-        <a href="index.html" class="active">Home</a>
-        <a href="#games">Games</a>
-        <a href="blog.html">Blog</a>
-    </div>
+  <h1>Ayoki Games</h1>
+  <div id="clock"></div>
 </nav>
 
 <div class="container">
-    <header class="intro-section">
-        <h1>Welcome to Ayoki Games</h1>
-        <p>
-            Welcome to Ayoki Games. This site has a huge collection of games. Enjoy playing!
-        </p>
-    </header>
 
-    <!-- Games Section -->
-    <section id="games">
-        <h2>Our Games</h2>
-        <div class="game-grid">
-            <!-- Example Game Card -->
-            <div class="game-card">
-                <img src="games/game1.png" alt="Game 1">
-                <h3>Game 1</h3>
-                <a href="games/game1.html">Play Now</a>
-            </div>
-            <div class="game-card">
-                <img src="games/game2.png" alt="Game 2">
-                <h3>Game 2</h3>
-                <a href="games/game2.html">Play Now</a>
-            </div>
-            <div class="game-card">
-                <img src="games/game3.png" alt="Game 3">
-                <h3>Game 3</h3>
-                <a href="games/game3.html">Play Now</a>
-            </div>
-            <!-- Add more game cards here -->
-        </div>
-    </section>
+<div class="search">
+  <input id="search" placeholder="Search games...">
+  <button onclick="clearSearch()">Clear</button>
 </div>
+
+<div id="count"></div>
+
+<div class="game-grid" id="games">
+
+<!-- GAME TEMPLATE -->
+<a class="game" href="games/eggycar.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjiN2Nchwat1tZFqTnAz3ZPQ8GYK9JSfAXmA&s">
+  <span>Eggy Car</span>
+</a>
+
+<a class="game" href="games/run3.html">
+  <img src="https://upload.wikimedia.org/wikipedia/en/5/5c/Run_3_game_icon.png">
+  <span>Run 3</span>
+</a>
+
+<a class="game" href="games/slope.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXqV1Hj1q5nWcL2D5LZ8_kR0Z5N6XcI5q1xQ&s">
+  <span>Slope</span>
+</a>
+
+<a class="game" href="games/retrobowl.html">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShZ9TzS1n8oVx6aZK9HT5W5GQhWQpRxwH7bQ&s">
+  <span>Retro Bowl</span>
+</a>
+
+</div>
+</div>
+
+<script>
+// CLOCK
+function updateClock(){
+  document.getElementById("clock").textContent =
+    new Date().toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+// SEARCH
+const search = document.getElementById("search");
+const games = [...document.querySelectorAll(".game")];
+const count = document.getElementById("count");
+
+games.forEach(g=>{
+  g.dataset.name = g.innerText.toLowerCase();
+});
+
+function filter(){
+  let visible = 0;
+  games.forEach(g=>{
+    if(g.dataset.name.includes(search.value.toLowerCase())){
+      g.style.display="";
+      visible++;
+    }else{
+      g.style.display="none";
+    }
+  });
+  count.textContent = `${visible} games`;
+}
+
+function clearSearch(){
+  search.value="";
+  filter();
+}
+
+search.addEventListener("input",filter);
+count.textContent = `${games.length} games`;
+</script>
 
 </body>
 </html>
