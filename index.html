@@ -80,6 +80,62 @@
             margin: 0 auto;
             font-size: 1.1em;
         }
+
+        /* Games section styles */
+        #games {
+            margin-top: 40px;
+        }
+
+        #games h2 {
+            color: var(--highlight-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg-color);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .game-card h3 {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .game-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: var(--highlight-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .game-card a:hover {
+            background-color: var(--highlight-hover);
+        }
     </style>
 </head>
 
@@ -87,7 +143,6 @@
 
 <nav>
     <a href="index.html" class="site-title">Ayoki Games</a>
-
     <div class="nav-buttons">
         <a href="index.html" class="active">Home</a>
         <a href="#games">Games</a>
@@ -99,9 +154,33 @@
     <header class="intro-section">
         <h1>Welcome to Ayoki Games</h1>
         <p>
-            Welcome to ayoki games. This site has a crap ton of games and like sorry dvusd but like you wont block this site
+            Welcome to Ayoki Games. This site has a huge collection of games. Enjoy playing!
         </p>
     </header>
+
+    <!-- Games Section -->
+    <section id="games">
+        <h2>Our Games</h2>
+        <div class="game-grid">
+            <!-- Example Game Card -->
+            <div class="game-card">
+                <img src="games/game1.png" alt="Game 1">
+                <h3>Game 1</h3>
+                <a href="games/game1.html">Play Now</a>
+            </div>
+            <div class="game-card">
+                <img src="games/game2.png" alt="Game 2">
+                <h3>Game 2</h3>
+                <a href="games/game2.html">Play Now</a>
+            </div>
+            <div class="game-card">
+                <img src="games/game3.png" alt="Game 3">
+                <h3>Game 3</h3>
+                <a href="games/game3.html">Play Now</a>
+            </div>
+            <!-- Add more game cards here -->
+        </div>
+    </section>
 </div>
 
 </body>
